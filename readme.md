@@ -23,16 +23,22 @@ Run
 to create your own config file. Set up your database credentials in that very same file.
 
 Run
-```composer install
-npm install```
+```
+composer install
+npm install
+```
 to install and download all dependencies.
 
 Run
-```php artisan key:generate```
+```
+php artisan key:generate
+```
 to generate an application key.
 
 Run
-```php artisan migrate```
+```
+php artisan migrate
+```
 to set-up the database tables.
 
 Make your own invoice template at `resources/views/pdf/invoice/[TEMPLATE_NAME].blade.php`, you can make your own SASS stylesheet at `resources/assets/sass/invoice/[TEMPLATE_NAME]/style.sass`.
@@ -41,7 +47,9 @@ If you need an image for your invoice, place it at `public/i/invoice/[TEMPLATE_N
 Add `mix.sass('invoice/[TEMPLATE_NAME]/style.sass', 'public/css/invoice/[TEMPLATE_NAME]/style.css');` to your `gulpfile.js`.
 
 Run
-```gulp```
+```
+gulp
+```
 to compile your stylesheet. You can find your stylesheet at `public/css/invoice/[TEMPLATE_NAME]/style.css`
 
 Navigate to the application and fill out the form. Make sure to create your own invoice template first, so you can select it in the form directly.
