@@ -1,0 +1,20 @@
+ul.menu
+    li
+        display: inline-block
+        a
+            text-decoration: none
+            display: block
+            font-size: 1.1rem
+            border-bottom: 2px solid transparent
+            color: $color-text
+            padding: $gutter-width $gutter-width / 2
+            &.active, &:hover
+                border-bottom: 2px solid $color-secondary
+
+ul.user-info
+    color: #fff
+    float: right
+    font-size: 1.1rem
+    li
+        display: inline-block
+        padding: $gutter-width / 1.35 $gutter-width / 2

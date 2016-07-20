@@ -1,0 +1,55 @@
+.notification
+    border-top: 1px solid
+    padding: $gutter-width
+    position: fixed
+    bottom: 0
+    width: 100%
+    font-size: 1.2rem
+    animation: bounceInUp 1s forwards, bounceOutDown 1s forwards 10s
+
+    &.-success
+        background-color: #76D785
+        color: #006500
+        border-color: darken(#76D785, 30%)
+
+    &.-error
+        background-color: #FF7C75
+        color: #4d0000
+        border-color: darken(#FF7C75, 50%)
+
+    ul
+        list-style: initial
+        margin-left: 48px
+
+@keyframes bounceOutDown
+  20%
+    transform: translate3d(0, 10px, 0)
+
+  40%, 45%
+    opacity: 1
+    transform: translate3d(0, -20px, 0)
+
+  to
+    opacity: 0
+    transform: translate3d(0, 2000px, 0)
+
+@keyframes bounceInUp
+  from, 60%, 75%, 90%, to
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000)
+
+  from
+    opacity: 0
+    transform: translate3d(0, 3000px, 0)
+
+  60%
+    opacity: 1
+    transform: translate3d(0, -20px, 0)
+
+  75%
+    transform: translate3d(0, 10px, 0)
+
+  90%
+    transform: translate3d(0, -5px, 0)
+
+  to
+    transform: translate3d(0, 0, 0)

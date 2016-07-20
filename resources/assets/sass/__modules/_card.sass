@@ -1,0 +1,46 @@
+.card
+    background-color: $color-white
+    border: 1px solid lighten($color-primary, 70%)
+    padding: $gutter-width
+    border-radius: 5px
+    margin-bottom: $gutter-width / 2
+    position: relative
+    overflow: auto
+
+    h3
+        font-size: 1.5rem
+        margin-bottom: $gutter-width / 2
+    h4
+        font-size: 1.25rem
+        margin: $gutter-width / 2 0 $gutter-width / 2
+    &.-flippable
+        perspective: 800
+        transform-style: preserve-3d
+        transition: all .5s ease
+
+        &.-flipped
+            transform: rotateY(-180deg)
+            .front
+                display: none
+            .back
+                visibility: visible
+                opacity: 1
+                height: 100%
+
+        .front
+            display: block
+        .back
+            transform: rotateY(180deg)
+            transition: all 1s linear
+            visibility: hidden
+            height: 0
+            opacity: 0
+            overflow: hidden
+    hr
+        border: 0
+        border-top: 1px solid lighten($color-primary, 70%)
+        margin: $gutter-width (-$gutter-width)
+
+    p
+        margin-bottom: 10px
+        line-height: 21px

@@ -1,0 +1,61 @@
+.button
+    background-color: $color-primary
+    color: #fff
+    border-radius: 5px
+    text-decoration: none
+    padding: 12px 14px
+    display: inline-block
+    border: 0
+    font-size: 1rem
+    cursor: pointer
+    white-space: nowrap
+    transition: all .5s ease
+
+    &:hover,
+    &:focus
+        background-color: lighten($color-primary, 10%)
+
+    &.-right
+        float: right
+    &.-center
+        margin-left: 50%
+        transform: translateX(-50%)
+
+    &.-margin-top
+        margin-top: $gutter-width / 2
+
+    &.-secondary
+        background-color: $color-secondary
+        &:hover
+            background-color: lighten($color-secondary, 10%)
+
+    &.-go,
+    &.-add,
+    &.-delete,
+    &.-edit,
+    &.-archive,
+    &.-money
+        padding-right: 8px
+
+        &::after
+            @include icon()
+            transition: all .5s ease
+            display: inline-block
+            padding-left: 8px
+
+        &:hover
+            &::after
+                padding-left: 16px
+
+    &.-go::after
+        content: '\e802'
+    &.-add::after
+        content: '\e800'
+    &.-delete::after
+        content: '\e805'
+    &.-edit::after
+        content: '\e806'
+    &.-archive::after
+        content: '\e803'
+    &.-money::after
+        content: '\e809'

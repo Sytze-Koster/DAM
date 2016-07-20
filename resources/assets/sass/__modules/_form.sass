@@ -1,0 +1,48 @@
+.field
+    padding: $gutter-width / 2 0 $gutter-width / 2 0
+    vertical-align: bottom
+    label
+        display: inline-block
+        cursor: pointer
+
+    input[type='text'],
+    input[type='email'],
+    input[type='password'],
+    textarea,
+    select
+        border: 0
+        background-color: #fff
+        background: linear-gradient(#fff calc(100% - 2px), transparent 2px) no-repeat border-box, linear-gradient(to right, #ff2e63 50%, #eee 50%) no-repeat border-box
+        background-size: 200% 100%, 200% 100%
+        background-position: right 0, right 0
+        background-origin: padding-box, padding-box
+        transition: all .5s ease
+        padding: $gutter-width / 2 0
+        font-size: 1.14rem
+        width: 100%
+        display: block
+        resize: none
+        border-radius: 0
+        font-family: 'Maven Pro', sans-serif
+
+        &:focus
+            background-position: left 0, left 0
+            outline: none
+
+    select
+        appearance: none
+        background: url('../i/caret-down.svg') no-repeat border-box, linear-gradient(#fff calc(100% - 2px), transparent 2px) no-repeat border-box, linear-gradient(to right, #ff2e63 50%, #eee 50%) no-repeat border-box
+        background-size: auto 25%, 200% 100%, 200% 100%
+        background-position: right center, right 0, right 0
+        background-origin: padding-box, padding-box, padding-box
+        &:focus
+            background-position: right center, left 0, left 0
+
+    .input-prepend
+        position: relative
+        span
+            position: absolute
+            font-size: 1.14rem
+            margin-top: 12px
+        input
+            padding-left: 15px

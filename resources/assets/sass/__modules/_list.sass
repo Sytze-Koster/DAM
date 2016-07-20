@@ -1,0 +1,46 @@
+.list
+    li, .list-item
+        margin-left: -$gutter-width
+        margin-right: -$gutter-width
+        padding: $gutter-width
+        border-bottom: 1px solid lighten($color-primary, 70%)
+        position: relative
+
+        &:last-child
+            border-bottom: 0
+
+        .footer
+            display: block
+            margin-bottom: -$gutter-width
+            margin-left: -$gutter-width
+            margin-right: - $gutter-width
+            margin-top: $gutter-width / 2
+            background-color: lighten($color-primary, 80%)
+            padding: 0 $gutter-width
+
+            .col
+                border-left: 1px solid lighten($color-primary, 70%)
+                border-right: 1px solid lighten($color-primary, 70%)
+                padding: $gutter-width / 2 $gutter-width / 2
+                margin-left: -1px
+
+                &:first-child
+                    border-left: 0
+
+                &:last-child
+                    border-right: 0
+
+        .key, .value
+            display: block
+
+        .key
+            font-size: 1.2rem
+        .value
+            margin-top: .5rem
+
+    &.-striped
+
+        &>.list-item
+
+            &:nth-child(odd)
+                background-color: lighten($color-primary, 80%)

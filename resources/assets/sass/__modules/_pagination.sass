@@ -1,0 +1,19 @@
+.pagination
+    text-align: center
+    li
+        display: inline-block
+        margin: 0 3px
+        a, span
+            padding: 12px
+            display: inline-block
+            color: $color-text
+            text-decoration: none
+            border: 1px solid lighten($color-primary, 65)
+            border-radius: 5px
+        a:hover
+            border-color: $color-secondary
+        &.active
+            span
+                color: #fff
+                background-color: $color-secondary
+                border-color: $color-secondary
