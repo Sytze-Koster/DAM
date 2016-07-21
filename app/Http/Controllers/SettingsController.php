@@ -157,7 +157,7 @@ class SettingsController extends Controller
 
             // Generate Image
             $google2fa_url = $google2fa->getQRCodeGoogleUrl(
-                'DAM',
+                config('company')['name'],
                 $user->email,
                 $user->gauth_token
             );
