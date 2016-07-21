@@ -20,8 +20,7 @@ class AppServiceProvider extends ServiceProvider
 
         // Put the executed queries to the console
         \DB::listen(function ($query) {
-            Log::info('QUERY EXECUTED: '.$query->sql."\n".'With Parameters: '.implode(', ', $query->bindings));
-            file_put_contents('php://stdout', "\e[1mQUERY EXECUTED:".$query->sql."\e[0m\n  \e[1mWITH PARAMETERS:\e[0m ".implode(',', $query->bindings)."\n");
+            // Log::info('QUERY EXECUTED: '.$query->sql."\n".'With Parameters: '.implode(', ', $query->bindings));
             // $query->time
         });
 
