@@ -124,7 +124,7 @@
     </div>
 
     <footer>
-        <p>Gelieve voor de uiterste vervaldatum te betalen o.v.v. het bovenstaande factuurnummer op <br />IBAN NL 16 INGB 0701 6039 33 ten name van: B.J. Verwer.</p>
+        <p>Gelieve voor de uiterste vervaldatum te betalen o.v.v.<br />het bovenstaande factuurnummer op {{ $company->bank_account_number }}.</p>
     </footer>
 
 </body>
