@@ -66,7 +66,9 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        $project->load('timesheets', 'invoices');
+        $project->load(['timesheets' => function($query) {
+            $query->where('in_progress', 0);
+        }, 'invoices']);
 
         // Get Customer Data
         $customer = Customer::effectivedate($project->ongoing ? Carbon::now() : $project->archived_at)->find($project->customer_id);
@@ -75,7 +77,7 @@ class ProjectController extends Controller
         if(count($project->timesheets)) {
 
             // Generate all weeks. Starting at the first timesheet notation untill the last.
-            for($date = $project->timesheets->first()->start->startOfWeek(); $date->lte($project->timesheets->where('in_progress', '0')->last()->end->startOfWeek()); $date->addWeek()) {
+            for($date = $project->timesheets->first()->start->startOfWeek(); $date->lte($project->timesheets->last()->end->startOfWeek()); $date->addWeek()) {
                 $stats[$date->startOfWeek()->format('d-m')] = 0;
             }
 

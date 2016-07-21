@@ -26,7 +26,7 @@ class DashboardController extends Controller
     {
 
         $projects = Project::where('ongoing', 1)->get()->lists('name', 'id');
-        $inProgress = Timesheet::where('end', '0000-00-00 00:00:00')->with('project')->get();
+        $inProgress = Timesheet::whereNull('end')->with('project')->get();
         $invoices = Invoice::unpaid()->with('customer.customerDetail')->orderBy('due_date')->get();
 
         return view('dashboard.index', compact('projects', 'inProgress', 'invoices'));
