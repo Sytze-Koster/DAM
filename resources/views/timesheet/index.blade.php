@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['pageTitle' => $project->name])
 
 @section('content')
 
@@ -53,13 +53,17 @@
                                 <div class="footer">
                                     <div class="row -no-gutter">
                                         <div class="col">{{ $timesheet->start->format('d-m-Y H:i') }}</div>
-                                        <div class="col">{{ ($timesheet->in_progress ? 'Ongoing' : $timesheet->end->format('d-m-Y H:i')) }}</div>
+                                        <div class="col">{{ ($timesheet->in_progress ? trans('dam.timesheet.ongoing') : $timesheet->end->format('d-m-Y H:i')) }}</div>
                                         <div class="col -align-right"><strong>{{ ($timesheet->in_progress ? '' : $timesheet->timeSpent(true)) }}</strong></div>
                                     </div>
                                 </div>
                             </div>
                         @endforeach
-                        Totaal {{ $project->timeSpent(true) }}
+                        <div class="list-item">
+                            <div class="row">
+                                <div class="col">{{ trans('dam.timesheet.total') }}</div>
+                                <div class="col -align-right"><strong>{{ $project->timeSpent(true) }}</strong></div>
+                        </div>
                     </div>
                 </div>
         </div>

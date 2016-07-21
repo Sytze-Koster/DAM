@@ -20,20 +20,21 @@ return [
     ],
 
     'timesheet' => [
-
         'add' => 'Uren registreren',
         'currently_working_on' => 'Momenteel bezig met',
         'description' => 'Omschrijving van de werkzaamheden',
         'end' => ['date' => 'Einddatum',
                   'time' => 'Eindtijd'
         ],
+        'ongoing' => 'Lopend',
         'start' => ['date' => 'Startdatum',
                     'time' => 'Eindtijd'
         ],
         'start_timer' => 'Timer starten',
         'started' => 'Timer succesvol gestart.',
         'stored' => 'Uren succesvol toegevoegd aan het project.',
-        'timesheet' => 'Urenregistratie'
+        'timesheet' => 'Urenregistratie',
+        'total' => 'Totaal'
     ],
 
     'customer' => [
