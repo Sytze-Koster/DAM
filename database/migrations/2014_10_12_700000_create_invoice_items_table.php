@@ -20,7 +20,6 @@ class CreateInvoiceItemsTable extends Migration
             $table->double('vat_rate');
             $table->double('amount');
             $table->timestamps();
-            $table->foreign('project_id')->references('id')->on('projects');
             $table->foreign('invoice_id')->references('id')->on('invoices');
         });
     }
