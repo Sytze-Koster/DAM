@@ -17,7 +17,7 @@ class CreateInvoiceItemsTable extends Migration
             $table->unsignedInteger('invoice_id');
             $table->unsignedInteger('project_id')->nullable();
             $table->text('description');
-            $table->double('vat_rate', 2, 1);
+            $table->double('vat_rate', 3, 1);
             $table->double('amount', 15, 2);
             $table->timestamps();
             $table->foreign('invoice_id')->references('id')->on('invoices');
