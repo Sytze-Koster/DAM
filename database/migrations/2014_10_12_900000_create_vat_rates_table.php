@@ -14,7 +14,7 @@ class CreateVatRatesTable extends Migration
     {
         Schema::create('vat_rates', function (Blueprint $table) {
             $table->increments('id');
-            $table->decimal('percentage', 2, 1);
+            $table->decimal('percentage', 3, 1);
             $table->timestamps();
         });
     }
