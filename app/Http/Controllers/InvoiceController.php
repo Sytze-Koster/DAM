@@ -73,8 +73,8 @@ class InvoiceController extends Controller
     {
 
         // Get invoices based on paginate
-        $invoices = Invoice::withoutIncoming()->orderBy('id', 'DESC')->paginate(10, ['*'], 'invoices');
-        $incomingInvoices = Invoice::onlyIncoming()->orderBy('id', 'DESC')->paginate(10, ['*'], 'incoming_invoices');
+        $invoices = Invoice::withoutIncoming()->orderBy('invoice_date', 'DESC')->paginate(10, ['*'], 'invoices');
+        $incomingInvoices = Invoice::onlyIncoming()->orderBy('invoice_date', 'DESC')->paginate(10, ['*'], 'incoming_invoices');
 
         // Create an array of all 'outgoing' invoices
         $invoicesWithData = [];
