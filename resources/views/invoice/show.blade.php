@@ -99,21 +99,21 @@
                         <div class="list-item">
                             <div class="row -no-gutter">
                                 <div class="col-5">{{ trans('dam.invoice.subtotal')}}</div>
-                                <div class="col-7 -align-right">&euro; {{ money_format('%!n', $invoice->totals('sub')) }}</div>
+                                <div class="col-7 -align-right">&euro; {{ number_format($invoice->totals('sub'), 2, ',', '.') }}</div>
                             </div>
                         </div>
                         @foreach($invoice->totals('vat') as $vatRate => $vatRule)
                         <div class="list-item">
                             <div class="row -no-gutter">
-                                <div class="col-5">{{ $vatRate }}% {{ trans('dam.invoice.over')}} &euro; {{ money_format('%!n', $vatRule['CalculatedOver']) }}</div>
-                                <div class="col-7 -align-right">&euro; {{ money_format('%!n', $vatRule['AmountOfVat']) }}</div>
+                                <div class="col-5">{{ $vatRate }}% {{ trans('dam.invoice.over')}} &euro; {{ number_format($vatRule['CalculatedOver'], 2, ',', '.') }}</div>
+                                <div class="col-7 -align-right">&euro; {{ number_format($vatRule['AmountOfVat'], 2, ',', '.') }}</div>
                             </div>
                         </div>
                         @endforeach
                         <div class="list-item">
                             <div class="row -no-gutter">
                                 <div class="col-5"><strong>{{ trans('dam.invoice.total_due')}}</strong></div>
-                                <div class="col-7 -align-right"><strong>&euro; {{ money_format('%!n', $invoice->totals('due')) }}</strong></div>
+                                <div class="col-7 -align-right"><strong>&euro; {{ number_format($invoice->totals('due'), 2, ',', '.') }}</strong></div>
                             </div>
                         </div>
                     </div>

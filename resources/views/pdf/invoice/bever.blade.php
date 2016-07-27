@@ -90,7 +90,7 @@
                     <td><span>{{ $item->description }}</span></td>
                     <td><span>{{ $item->vat_rate }}%</span></td>
                     <td class="-align-right"><span>&euro;</span></td>
-                    <td class="-align-right"><span>{{ $item->amount }}</span></td>
+                    <td class="-align-right"><span>{{ number_format($item->amount, 2, ',', '.') }}</span></td>
                 </tr>
                 @endforeach
             </tbody>
@@ -105,19 +105,19 @@
                 <tr>
                     <td width="84%"><strong>{{ trans('dam.invoice.subtotal')}}</strong></td>
                     <td width="3%" class="-align-right">&euro;</td>
-                    <td width="13%" class="-align-right">{{ money_format('%!n', $invoice->totals('sub')) }}</td>
+                    <td width="13%" class="-align-right">{{ number_format($invoice->totals('sub'), 2, ',', '.') }}</td>
                 </tr>
                 @foreach($invoice->totals('vat') as $vatRate => $vatRule)
                     <tr>
-                        <td width="84%"><strong>BTW ({{ $vatRate }}%) {{ trans('dam.invoice.over')}} &euro; {{ money_format('%!n', $vatRule['CalculatedOver']) }}</strong></td>
+                        <td width="84%"><strong>BTW ({{ $vatRate }}%) {{ trans('dam.invoice.over')}} &euro; {{ number_format($vatRule['CalculatedOver'], 2, ',', '.') }}</strong></td>
                         <td width="3%" class="-align-right">&euro;</td>
-                        <td width="13%" class="-align-right">{{ money_format('%!n', $vatRule['AmountOfVat']) }}</td>
+                        <td width="13%" class="-align-right">{{ number_format($vatRule['AmountOfVat'], 2, ',', '.') }}</td>
                     </tr>
                 @endforeach
                 <tr>
                     <td width="84%"><strong>{{ trans('dam.invoice.total_due')}}</strong></td>
                     <td width="3%" class="-align-right"><strong>&euro;</strong></td>
-                    <td width="13%" class="-align-right"><strong>{{ money_format('%!n', $invoice->totals('due')) }}</strong></td>
+                    <td width="13%" class="-align-right"><strong>{{ number_format($invoice->totals('due'), 2, ',', '.') }}</strong></td>
                 </tr>
             </tbody>
         </table>
