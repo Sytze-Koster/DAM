@@ -331,10 +331,9 @@ class InvoiceController extends Controller
         $currentYear = Carbon::now()->format('Y');
 
         // Get customer, with last invoice
-        $customer = Customer::with(['invoices' => function($query) use ($currentYear) {
-                                $query->whereYear('invoice_date', '=', $currentYear)
-                                      ->orderBy('invoice_date', 'DESC')
-                                      ->first();
+        $customer = Customer::with(['invoices' => function($query) {
+                                $query->where('is_incoming', 0)
+                                      ->orderBy('invoice_date', 'DESC');
                             }])
                             ->orderBy('id', 'DESC')
                             ->find($customer);
@@ -345,8 +344,7 @@ class InvoiceController extends Controller
 
         // Increment number if there's a invoice, otherwise start at 1
         if(count($customer->invoices)) {
-            $lastInvoiceNumber = substr($customer->invoices[0]->invoice_number, -4);
-            $newInvoiceNumber[] = sprintf('%04d', $lastInvoiceNumber + 1);
+            $newInvoiceNumber[] = sprintf('%04d', $customer->invoices->count() + 1);
         } else {
             $newInvoiceNumber[] = sprintf('%04d', 1);
         }
