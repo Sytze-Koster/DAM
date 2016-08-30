@@ -68,7 +68,7 @@
         </div>
     @endif
 
-    @if($errors->has())
+    @if(isset($errors) && $errors->has())
         <div class="notification -error">
             <div class="container">
                 <i class="icon icon-cancel"></i> {{ trans('dam.general.error.validation') }}
