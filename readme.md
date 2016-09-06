@@ -1,5 +1,5 @@
 # DAM
-DAM Administration Management is a tool written in Laravel 5.2 for self-employed entrepreneurs to track time and generate invoices. Lastly, DAM makes it easy to do your declaration to the tax authorities.
+DAM Administration Management is a tool written in Laravel 5.3 for self-employed entrepreneurs to track time and generate invoices. Lastly, DAM makes it easy to do your declaration to the tax authorities.
 
 ## Functionality
 - Time tracking
@@ -10,7 +10,7 @@ DAM Administration Management is a tool written in Laravel 5.2 for self-employed
 - Use of 'effective dates' for customer & company information
 
 ## Requirements
-- PHP >= 5.5.9 (why not use 7.0?)
+- PHP >= 5.6.4 (why not use 7.0?)
 - wkhtmltopdf binary
 - MySQL or SQLite database
 
