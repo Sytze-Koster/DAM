@@ -19,23 +19,23 @@
         <tr>
             <td width="32%" rowspan="3" class="-align-vert-middle"><img src="{{ url('i/invoice/bever/logo.png') }}" height="45" width="199"></td>
             <td width="20%">{{ $company->name }}</td>
-            <td width="20%"><span>T</span> {{ $company->phone_number }}</td>
-            <td width="28%"><span class="large">KVK</span> {{ $company->chamber_of_commerce }}</td>
+            <td width="20%"><span>{{ trans('dam.invoice.pdf.phone_number') }}</span> {{ $company->phone_number }}</td>
+            <td width="28%"><span class="large">{{ trans('dam.invoice.pdf.chamber_of_commerce') }}</span> {{ $company->chamber_of_commerce }}</td>
         </tr>
         <tr >
             <td>{{ $company->address }}</td>
-            <td><span>E</span> {{ $company->email_address }}</td>
-            <td><span class="large">VAT</span> {{ $company->vat_number }}</td>
+            <td><span>{{ trans('dam.invoice.pdf.email_address') }}</span> {{ $company->email_address }}</td>
+            <td><span class="large">{{ trans('dam.invoice.pdf.vat') }}</span> {{ $company->vat_number }}</td>
         </tr>
         <tr>
             <td>{{ $company->postal_code }} {{ $company->city }}</td>
-            <td><span>W</span> {{ $company->website }}</td>
-            <td><span class="large">IBAN</span> {{ $company->bank_account_number }}</td>
+            <td><span>{{ trans('dam.invoice.pdf.website') }}</span> {{ $company->website }}</td>
+            <td><span class="large">{{ trans('dam.invoice.pdf.iban') }}</span> {{ $company->bank_account_number }}</td>
         </tr>
     </table>
 
     <div id="addresser">
-        <h2>Geadresseerde</h2>
+        <h2>{{ trans('dam.invoice.addressor') }}</h2>
         <table width="100%">
             <tr>
                 <td><strong>{{ $invoice->customer->customerDetail->name }}</strong></td>
@@ -53,20 +53,20 @@
     </div>
 
     <div id="invoice_details">
-        <h2>Factuur</h2>
+        <h2>{{ trans('dam.invoice.invoice') }}</h2>
         <table width="100%">
             <tr>
-                <td width="17%">Factuurdatum</td>
+                <td width="17%">{{ trans('dam.invoice.date') }}</td>
                 <td width="15px" class="-align-right">:</td>
                 <td>&nbsp;{{ $invoice->invoice_date->format('d-m-Y') }}</td>
             </tr>
             <tr>
-                <td>Vervaldatum</td>
+                <td>{{ trans('dam.invoice.due_date') }}</td>
                 <td width="15px" class="-align-right">:</td>
                 <td>&nbsp;{{ $invoice->due_date->format('d-m-Y') }}</td>
             </tr>
             <tr>
-                <td>Factuurnummer</td>
+                <td>{{ trans('dam.invoice.number') }}</td>
                 <td width="15px" class="-align-right">:</td>
                 <td>&nbsp;{{ $invoice->invoice_number }}</td>
             </tr>
@@ -74,14 +74,14 @@
     </div>
 
     <div id="invoice_items">
-        <h2>Specificatie</h2>
+        <h2>{{ trans('dam.invoice.specification') }}</h2>
         <table width="100%">
             <thead>
                 <tr>
-                    <td width="75%"><strong>Omschrijving</strong></td>
-                    <td width="9%"><strong>BTW</strong></td>
+                    <td width="75%"><strong>{{ trans('dam.invoice.description') }}</strong></td>
+                    <td width="9%"><strong>{{ trans('dam.invoice.pdf.vat') }}</strong></td>
                     <td width="3%"></td>
-                    <td width="13%" class="-align-right"><strong>Bedrag</strong></td>
+                    <td width="13%" class="-align-right"><strong>{{ trans('dam.invoice.amount') }}</strong></td>
                 </tr>
             </thead>
             <tbody>
@@ -109,7 +109,7 @@
                 </tr>
                 @foreach($invoice->totals('vat') as $vatRate => $vatRule)
                     <tr>
-                        <td width="84%"><strong>BTW ({{ $vatRate }}%) {{ trans('dam.invoice.over')}} &euro; {{ number_format($vatRule['CalculatedOver'], 2, ',', '.') }}</strong></td>
+                        <td width="84%"><strong>{{ trans('dam.invoice.pdf.vat') }} ({{ $vatRate }}%) {{ trans('dam.invoice.over')}} &euro; {{ number_format($vatRule['CalculatedOver'], 2, ',', '.') }}</strong></td>
                         <td width="3%" class="-align-right">&euro;</td>
                         <td width="13%" class="-align-right">{{ number_format($vatRule['AmountOfVat'], 2, ',', '.') }}</td>
                     </tr>
