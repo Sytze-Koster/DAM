@@ -4,7 +4,7 @@ return array(
 
     'pdf' => array(
         'enabled' => true,
-        'binary'  => '/usr/local/bin/wkhtmltopdf',
+        'binary'  => env('PDF_PATH', '/usr/local/bin/wkhtmltopdf'),
         'timeout' => false,
         'options' => array(
             'margin-top' => 0,
