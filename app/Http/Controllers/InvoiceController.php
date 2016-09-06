@@ -105,9 +105,9 @@ class InvoiceController extends Controller
     {
 
         // Get all customers and ongoing projects
-        $customers = Customer::effectivedate(Carbon::now())->withoutIncoming()->get()->lists('customerDetail.name', 'id');
-        $projects = Project::where('ongoing', 1)->lists('name', 'id')->toArray();
-        $vat_rates = VatRate::lists('percentage', 'percentage')->toArray();
+        $customers = Customer::effectivedate(Carbon::now())->withoutIncoming()->get()->pluck('customerDetail.name', 'id');
+        $projects = Project::where('ongoing', 1)->pluck('name', 'id')->toArray();
+        $vat_rates = VatRate::pluck('percentage', 'percentage')->toArray();
 
         // Add a % sign to every VAT-rate
         foreach($vat_rates as $key => $value) {
@@ -220,7 +220,7 @@ class InvoiceController extends Controller
             $query->effectiveDate($invoice->invoice_date);
         }]);
 
-        $projects = Project::lists('name', 'id')->toArray();
+        $projects = Project::pluck('name', 'id')->toArray();
         $vat = ['21' => '21%', '6' => '6%', '0' => '0%'];
 
         $projects = array_add($projects, 0, trans('dam.invoice.no_project'));

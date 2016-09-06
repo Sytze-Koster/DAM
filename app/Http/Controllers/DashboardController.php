@@ -25,7 +25,7 @@ class DashboardController extends Controller
     public function index()
     {
 
-        $projects = Project::where('ongoing', 1)->get()->lists('name', 'id');
+        $projects = Project::where('ongoing', 1)->get()->pluck('name', 'id');
         $inProgress = Timesheet::whereNull('end')->with('project')->get();
         $invoices = Invoice::unpaid()->with('customer.customerDetail')->orderBy('due_date')->get();
 

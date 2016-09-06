@@ -7,8 +7,7 @@ use App\Http\Requests;
 use App\Http\Requests\LoginRequest;
 use App\User;
 use Auth;
-use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
-use Illuminate\Foundation\Auth\ThrottlesLogins;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use PragmaRX\Google2FA\Google2FA;
 use Redirect;
@@ -28,7 +27,7 @@ class AuthController extends Controller
     |
     */
 
-    use AuthenticatesAndRegistersUsers, ThrottlesLogins;
+    use AuthenticatesUsers;
 
     /**
      * Where to redirect users after login / registration.
@@ -44,7 +43,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware($this->guestMiddleware(), ['except' => ['logout', 'lock', 'locked', 'unlock']]);
+        $this->middleware('guest', ['except' => ['logout', 'lock', 'locked', 'unlock']]);
     }
 
     /**

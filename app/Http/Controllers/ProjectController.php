@@ -42,7 +42,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-      $customers = Customer::effectivedate(Carbon::now())->get()->lists('customerDetail.name', 'id');
+      $customers = Customer::effectivedate(Carbon::now())->get()->pluck('customerDetail.name', 'id');
       return view('project.create', compact('customers'));
     }
 
@@ -106,7 +106,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        $customers = Customer::effectivedate(Carbon::now())->get()->lists('customerDetail.name', 'id');
+        $customers = Customer::effectivedate(Carbon::now())->get()->pluck('customerDetail.name', 'id');
         return view('project.edit', compact('project', 'customers'));
     }
 
