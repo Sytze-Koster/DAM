@@ -26,7 +26,8 @@ class ProjectRequest extends Request
         return [
             'name' => 'required',
             'description' => 'required',
-            'customer_id' => 'required'
+            'customer_id' => 'required',
+            'notify_after' => 'required|integer'
         ];
     }
 }

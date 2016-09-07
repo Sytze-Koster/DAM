@@ -59,6 +59,9 @@ class TimesheetController extends Controller
             new Timesheet($timesheet)
         );
 
+        // Maybe we've to notify the user.
+        $this->checkForNotify($project);
+
         // Notify user and redirect back
         Session::flash('success', trans('dam.timesheet.stored'));
         return back();
@@ -97,6 +100,9 @@ class TimesheetController extends Controller
         $timesheet->in_progress = 0;
 
         $timesheet->save();
+
+        // Maybe we've to notify the user.
+        $this->checkForNotify($timesheet->project);
 
         // Notify user and redirect back
         Session::flash('success', trans('dam.timesheet.stored'));
@@ -148,4 +154,25 @@ class TimesheetController extends Controller
     {
         //
     }
+
+    /**
+     * Check if the user needs to receive a notification
+     * if so, send a notification.
+     *
+     * @param  Project  $project
+     * @return bool
+     */
+    private function checkForNotify(Project $project)
+    {
+
+        // If notify_after is NOT 0 and
+        if($project->notify_after != 0 && $project->timeSpent() >= $project->notify_after) {
+            Auth::user()->notify(new \App\Notifications\TimesheetNotification($project));
+            return true;
+        }
+
+        return false;
+
+    }
+
 }

@@ -13,6 +13,7 @@ return [
         'edit' => 'Bewerk project',
         'name' => 'Projectnaam',
         'new' => 'Nieuw project',
+        'notify_after' => 'Geef een melding na.. (uren)',
         'project' => 'Project',
         'projects' => 'Projecten',
         'reopened' => 'Project succesvol heropend.',
@@ -25,6 +26,13 @@ return [
         'description' => 'Omschrijving van de werkzaamheden',
         'end' => ['date' => 'Einddatum',
                   'time' => 'Eindtijd'
+        ],
+        'notification' => [
+            'greeting' => 'Hoi!',
+            'intro' => 'Het project :projectName is over de aangegeven :hours u(u)r(en) heengegaan.',
+            'subject' => 'Urenmelding :projectName',
+            'to_timesheet' => 'Ga naar het urenoverzicht',
+            'turn_off' => 'Om de meldingen uit te zetten kun je het project bewerken en \'0\' invoeren bij \'Geef melding na..\'.'
         ],
         'ongoing' => 'Lopend',
         'start' => ['date' => 'Startdatum',

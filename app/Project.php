@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Project extends Model
 {
 
-    protected $fillable = ['name', 'description', 'customer_id'];
+    protected $fillable = ['name', 'description', 'notify_after', 'customer_id'];
     protected $dates = ['created_at', 'updated_at', 'archived_at'];
 
     public function timesheets()

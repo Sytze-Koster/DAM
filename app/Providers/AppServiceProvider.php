@@ -28,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
         $company = \Cache::remember('company', 1440 * 30, function() {
 
             if(\Schema::hasTable('company')) {
-                $companyData = \App\Company::effectiveDate(\Carbon\Carbon::now())->select('name')->first();
+                $companyData = \App\Company::effectiveDate(\Carbon\Carbon::now())->select('name', 'email_address')->first();
 
                 if($companyData) {
                     return $companyData->toArray();

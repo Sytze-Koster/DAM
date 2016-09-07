@@ -13,4 +13,9 @@
     {{ Form::select('customer_id', $customers, null, ['placeholder' => trans('dam.project.customer')])}}
   </div>
 
+  <div class="field">
+    {{ Form::label('notify_after', trans('dam.project.notify_after')) }}
+    {{ Form::text('notify_after', null, ['placeholder' => trans('dam.project.notify_after')]) }}
+  </div>
+
   {{ Form::button($buttonText, ['class' => 'button -go -right', 'type' => 'submit']) }}

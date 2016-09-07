@@ -134,6 +134,7 @@ return [
             'due_date' => 'Vervaldatum'
         ],
         'name' => 'Naam',
+        'notify_after' => 'Geef een melding na..',
         'password' => 'Wachtwoord',
         'percentage' => 'BTW-percentage',
         'phone_number' => 'Telefoonnummer',
