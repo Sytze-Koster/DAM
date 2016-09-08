@@ -105,7 +105,7 @@ class AuthController extends Controller
 
             // Notify the user if credentials are wrong
             Session::flash('error', trans('dam.auth.invalid'));
-            return Redirect::action('Auth\AuthController@showLoginForm');
+            return redirect()->back()->withInput($request->all());
 
         }
 

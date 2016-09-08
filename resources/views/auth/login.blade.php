@@ -16,7 +16,7 @@
                             {{ Form::password('password', ['placeholder' => trans('dam.auth.password')])}}
                         </div>
                         <div class="field">
-                            {{ Form::checkbox('remember', 1, old('remember'), ['id' => 'remember']) }}
+                            {{ Form::checkbox('remember', 1, old('remember') || 1, ['id' => 'remember']) }}
                             {{ Form::label('remember', trans('dam.auth.remember_me'))}}
                         </div>
                         {{ Form::button(trans('dam.auth.login'), ['class' => 'button -go -right', 'type' => 'submit']) }}
