@@ -6,6 +6,7 @@ use App\Http\Requests;
 use App\Http\Requests\TimesheetRequest;
 use App\Project;
 use App\Timesheet;
+use Auth;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Session;
