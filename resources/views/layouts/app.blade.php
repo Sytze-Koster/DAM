@@ -10,6 +10,9 @@
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Maven+Pro:100,300,400,700">
 
+    <!-- Favion -->
+    <link rel="shortcut icon" type="image/png" href="{{ url('/favicon.png') }}">
+
     <!-- Styles -->
     <!--<link rel="stylesheet" href="{{ elixir('css/app.css') }}">-->
     <link rel="stylesheet" href="{{ url('css/app.css') }}">

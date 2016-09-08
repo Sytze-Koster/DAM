@@ -137,6 +137,12 @@ $(document).on('ready turbolinks:render', function() {
             seconds = seconds-(hours*60*60)-(minutes*60);
 
             $(elm).html(pad(hours)+':'+pad(minutes)+':'+pad(seconds));
+            if(hours > 0) {
+                document.title = hours+':'+pad(minutes)+':'+pad(seconds);
+            } else {
+                document.title = pad(minutes)+':'+pad(seconds);
+            }
+
         }
 
         setInterval(countdown, 1000);
