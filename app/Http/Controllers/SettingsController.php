@@ -156,7 +156,7 @@ class SettingsController extends Controller
             $user->save();
 
             // Generate Image
-            $google2fa_url = $google2fa->getQRCodeGoogleUrl(
+            $google2fa_url = $google2fa->getQRCodeInline(
                 config('company')['name'],
                 $user->email,
                 $user->gauth_token
