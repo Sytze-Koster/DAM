@@ -11,15 +11,6 @@
 |
 */
 
-// Route::get('login', function() {
-//     $user = App\User::find(1);
-//     $user->password = bcrypt('12345');
-//     $user->gauth_token = '';
-//     $user->save();
-//     dd($user);
-//     return 'ok';
-// });
-
 // Dashboard
 Route::get('/', 'DashboardController@index');
 Route::get('/financial', 'FinancialOverviewController@index');
