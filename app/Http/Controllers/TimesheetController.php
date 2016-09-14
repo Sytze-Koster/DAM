@@ -189,8 +189,8 @@ class TimesheetController extends Controller
     private function checkForNotify(Project $project)
     {
 
-        // If notify_after is NOT 0 and
-        if($project->notify_after != 0 && $project->timeSpent() >= $project->notify_after) {
+        // If notify_after is NOT 0 and 'time spent' is equal or greater then 'notify_after'...
+        if($project->notify_after != 0 && (($project->timeSpent() / 60) / 60) >= $project->notify_after) {
             Auth::user()->notify(new \App\Notifications\TimesheetNotification($project));
             return true;
         }
