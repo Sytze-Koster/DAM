@@ -164,4 +164,27 @@ class ProjectController extends Controller
 
     }
 
+    public function toggleShareability(Project $project)
+    {
+
+        if($project->share_id) {
+
+            $project->share_id = null;
+            $project->save();
+
+            Session::flash('success', trans('dam.project.shareability.disabled'));
+
+        } else {
+
+            $project->share_id = str_random(50);
+            $project->save();
+
+            Session::flash('success', trans('dam.project.shareability.enabled'));
+
+        }
+
+        return Redirect::action('ProjectController@show', $project->id);
+
+    }
+
 }

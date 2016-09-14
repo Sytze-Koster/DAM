@@ -42,6 +42,16 @@
                 <div class="card">
                     <h3>{{ $project->name }}</h3>
                     <p>{{ $project->description }}</p>
+                    <hr />
+                    <h3>{{ trans('dam.project.shareability.shareable_link') }}</h3>
+                    @if($project->share_id)
+                        <div class="field">
+                            <input type="text" value="{{ URL::action('TimesheetController@showForCustomer', $project->share_id) }}">
+                        </div>
+                        <a href="{{ URL::action('ProjectController@toggleShareability', $project->id) }}" class="button" data-turbolinks="false">{{ trans('dam.project.shareability.disable') }}</a>
+                    @else
+                        <a href="{{ URL::action('ProjectController@toggleShareability', $project->id) }}" class="button" data-turbolinks="false">{{ trans('dam.project.shareability.enable') }}</a>
+                    @endif
                 </div>
 
                 <div class="card">

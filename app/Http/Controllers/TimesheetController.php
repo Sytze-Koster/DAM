@@ -13,6 +13,12 @@ use Session;
 
 class TimesheetController extends Controller
 {
+
+    public function __construct()
+    {
+        return $this->middleware('auth', ['except' => 'showForCustomer']);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -22,6 +28,23 @@ class TimesheetController extends Controller
     {
         $project->load('timesheets');
         return view('timesheet.index', compact('project'));
+    }
+
+    /**
+     * undocumented function
+     *
+     * @param  string  $id
+     * @return \Illuminate\Http\Response
+     **/
+    public function showForCustomer($id)
+    {
+        $project = Project::where('share_id', $id)->with('timesheets')->firstOrFail();
+
+        if(!$project) {
+            abort(404);
+        }
+
+        return view('timesheet.showForCustomer', compact('project'));
     }
 
     /**

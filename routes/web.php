@@ -35,12 +35,14 @@ Route::get('project/new', 'ProjectController@create');
 Route::get('project/{project}', 'ProjectController@show');
 Route::patch('project/{project}', 'ProjectController@update');
 Route::get('project/{project}/edit', 'ProjectController@edit');
+Route::get('project/{project}/toggleShareability', 'ProjectController@toggleShareability');
 Route::post('project/', 'ProjectController@store');
 Route::delete('project/{project}', 'ProjectController@destroy');
 Route::post('project/{project}/archive', 'ProjectController@archive');
 
 // Timesheet
 Route::get('project/{project}/timesheet', 'TimesheetController@index');
+Route::get('project/{id}/customer', 'TimesheetController@showForCustomer');
 Route::post('timesheet/start/', 'TimesheetController@startTime');
 Route::post('timesheet/end/{timesheet}', 'TimesheetController@endTime');
 Route::post('timesheet/{project}', 'TimesheetController@store');

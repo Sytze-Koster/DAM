@@ -17,6 +17,12 @@ return [
         'project' => 'Project',
         'projects' => 'Projecten',
         'reopened' => 'Project succesvol heropend.',
+        'shareability' => ['disable' => 'Schakel deelbaarheid uit',
+                            'disabled' => 'Deelbaarheid succesvol uitgeschakeld.',
+                            'enable' => 'Genereer deelbare link',
+                            'enabled' => 'Project succesvol deelbaar gemaakt.',
+                            'shareable_link' => 'Deelbare link',
+        ],
         'updated' => 'Project succesvol geüpdatet.'
     ],
 
