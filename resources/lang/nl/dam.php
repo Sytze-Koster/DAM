@@ -23,7 +23,8 @@ return [
                             'enabled' => 'Project succesvol deelbaar gemaakt.',
                             'shareable_link' => 'Deelbare link',
         ],
-        'updated' => 'Project succesvol geüpdatet.'
+        'updated' => 'Project succesvol geüpdatet.',
+        'worked_hours' => 'Gewerkte uren'
     ],
 
     'timesheet' => [

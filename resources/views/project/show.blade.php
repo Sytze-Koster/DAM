@@ -120,7 +120,7 @@
                 data: {
                     labels: ['{!! implode("', '", array_keys($stats)) !!}'],
                     datasets: [{
-                        label: 'Worked hours',
+                        label: '{{ trans('dam.project.worked_hours') }}',
                         data: [{!! implode(', ', $stats) !!}],
                         backgroundColor: '#fb86a4',
                         borderColor: '#ff2e63',
