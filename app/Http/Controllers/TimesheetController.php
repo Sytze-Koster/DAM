@@ -14,7 +14,7 @@ use Session;
 class TimesheetController extends Controller
 {
 
-    public function __construct()
+    function __construct()
     {
         return $this->middleware('auth', ['except' => 'showForCustomer']);
     }
