@@ -81,7 +81,13 @@
                     <div class="list -striped">
                         @foreach($invoice->items as $item)
                         <div class="list-item">
-                            <span class="key">{{ $item->description }}</span>
+                            <span class="key">
+                                @if($item->project_id)
+                                    <a href="{{ URL::action('ProjectController@show', $item->project_id) }}">{{ $item->description }}</a>
+                                @else
+                                    {{ $item->description }}
+                                @endif
+                            </span>
                             <div class="row">
                                 <div class="col-4">{{ trans('dam.invoice.vat_percentage') }}</div>
                                 <div class="col-8 -align-right">{{ $item->vat_rate }}%</div>
