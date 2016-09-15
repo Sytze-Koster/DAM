@@ -15,6 +15,10 @@ use Session;
 class ProjectController extends Controller
 {
 
+    /**
+     * Constructor
+     *
+     **/
     function __construct()
     {
         $this->middleware('auth');

@@ -14,6 +14,10 @@ use Session;
 class TimesheetController extends Controller
 {
 
+    /**
+     * Constructor
+     *
+     **/
     function __construct()
     {
         return $this->middleware('auth', ['except' => 'showForCustomer']);
@@ -45,16 +49,6 @@ class TimesheetController extends Controller
         }
 
         return view('timesheet.showForCustomer', compact('project'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -132,51 +126,6 @@ class TimesheetController extends Controller
         Session::flash('success', trans('dam.timesheet.stored'));
         return back();
 
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 
     /**

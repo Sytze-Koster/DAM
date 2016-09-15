@@ -14,6 +14,10 @@ use Session;
 class CustomerController extends Controller
 {
 
+    /**
+     * Constructor
+     *
+     **/
     function __construct()
     {
         $this->middleware('auth');

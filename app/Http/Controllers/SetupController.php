@@ -13,6 +13,10 @@ use Redirect;
 class SetupController extends Controller
 {
 
+    /**
+     * Constructor
+     *
+     **/
     function __construct()
     {
         if(Cache::get('userCount')) {

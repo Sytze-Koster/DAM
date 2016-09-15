@@ -11,6 +11,10 @@ use Illuminate\Http\Request;
 class FinancialOverviewController extends Controller
 {
 
+    /**
+     * Constructor
+     *
+     **/
     function __construct()
     {
         $this->middleware('auth');

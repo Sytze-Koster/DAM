@@ -12,6 +12,10 @@ use PDF;
 class DashboardController extends Controller
 {
 
+    /**
+     * Constructor
+     *
+     **/
     function __construct()
     {
         $this->middleware('auth');

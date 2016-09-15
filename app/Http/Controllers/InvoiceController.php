@@ -20,6 +20,10 @@ use Session;
 class InvoiceController extends Controller
 {
 
+    /**
+     * Constructor
+     *
+     **/
     function __construct()
     {
         $this->middleware('auth');
