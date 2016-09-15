@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Customer;
 use App\Http\Requests;
 use App\Http\Requests\ProjectRequest;
+use App\Invoice;
 use App\Project;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -95,7 +96,12 @@ class ProjectController extends Controller
 
         }
 
-        return view('project.show', compact('project', 'timeSum', 'stats', 'customer'));
+        // Get invoices where this project is mentioned.
+        $invoices = Invoice::whereHas('items', function($query) use($project) {
+            $query->where('project_id', $project->id);
+        })->get();
+
+        return view('project.show', compact('project', 'timeSum', 'stats', 'customer', 'invoices'));
     }
 
     /**

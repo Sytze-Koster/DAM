@@ -85,6 +85,27 @@
                     <h3>Statistieken</h3>
                     <canvas id="stats"></canvas>
                 </div>
+
+                @if(count($invoices))
+                <div class="card">
+                    <h3>{{ trans('dam.invoice.invoices') }}</h3>
+                    <div class="list -striped">
+                        @foreach($invoices as $invoice)
+                        <div class="list-item">
+                            <div class="row -align-vert-center -no-gutter">
+                                <div class="col-6">
+                                    <p class="key">{{ $invoice->invoice_number }}</p>
+                                    <p class="value">{{ $invoice->invoice_date->format('d-m-Y') }}</p>
+                                </div>
+                                <div class="col-6">
+                                    <a href="{{ URL::action('InvoiceController@show', $invoice->id)}}" class="button -go -right -margin-top">{{ trans('dam.general.more-information') }}</a>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+                @endif
             </div>
         </div>
     </main>
