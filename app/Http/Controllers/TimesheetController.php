@@ -9,6 +9,7 @@ use App\Timesheet;
 use Auth;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Redirect;
 use Session;
 
 class TimesheetController extends Controller
@@ -86,6 +87,51 @@ class TimesheetController extends Controller
 
     }
 
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  Timesheet  $timesheet
+     * @return \Illuminate\Http\Response
+     **/
+    public function edit(Timesheet $timesheet)
+    {
+
+        if($timesheet->in_progress) {
+            Session::flash('error', trans('dam.timesheet.cannot_edit'));
+            return Redirect::action('TimesheetController@index', $timesheet->project_id);
+        }
+
+        // Get projects
+        $projects = Project::where('ongoing', 1)->pluck('name', 'id');
+
+        return view('timesheet.edit', compact('timesheet', 'projects'));
+
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Timesheet $timesheet)
+    {
+
+        // Convert single fields to 1 datetime string
+        $startdate = Carbon::createFromFormat('d-m-Y H:i', $request->start_date.' '.$request->start_time);
+        $enddate = Carbon::createFromFormat('d-m-Y H:i', $request->end_date.' '.$request->end_time);
+
+        $timesheet->update(array_collapse([$request->all(), ['start' => $startdate, 'end' => $enddate]]));
+
+        // Notify the user
+        Session::flash('success', trans('dam.timesheet.updated'));
+
+        // Redirect to timesheets
+        return Redirect::action('TimesheetController@index', $timesheet->project_id);
+
+    }
+
     public function startTime(Request $request)
     {
 
@@ -125,6 +171,26 @@ class TimesheetController extends Controller
         // Notify user and redirect back
         Session::flash('success', trans('dam.timesheet.stored'));
         return back();
+
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  Timesheet  $timesheet
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Timesheet $timesheet)
+    {
+
+        // Delete timesheet
+        $timesheet->delete();
+
+        // Notify the user
+        Session::flash('success', trans('dam.timesheet.destroyed'));
+
+        // Redirect back
+        return Redirect::action('TimesheetController@index', $timesheet->project_id);
 
     }
 

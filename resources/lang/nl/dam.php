@@ -29,8 +29,14 @@ return [
 
     'timesheet' => [
         'add' => 'Uren registreren',
+        'cannot_edit' => 'Lopende uren kunnen niet worden bewerkt.',
         'currently_working_on' => 'Momenteel bezig met',
+        'deleted' => 'Uren succesvol verwijderd.',
         'description' => 'Omschrijving van de werkzaamheden',
+        'destroy' => 'Uren verwijderen',
+        'destroy_confirm' => 'Weet je zeker dat je deze uren wil verwijderen?',
+        'destroyed' => 'Uren succesvol verwijderd.',
+        'edit' => 'Uren bewerken',
         'end' => ['date' => 'Einddatum',
                   'time' => 'Eindtijd'
         ],
@@ -42,14 +48,16 @@ return [
             'turn_off' => 'Om de meldingen uit te zetten kun je het project bewerken en \'0\' invoeren bij \'Geef melding na..\'.'
         ],
         'ongoing' => 'Lopend',
+        'save' => 'Uren opslaan',
         'start' => ['date' => 'Startdatum',
-                    'time' => 'Eindtijd'
+                    'time' => 'Starttijd'
         ],
         'start_timer' => 'Timer starten',
         'started' => 'Timer succesvol gestart.',
         'stored' => 'Uren succesvol toegevoegd aan het project.',
         'timesheet' => 'Urenregistratie',
-        'total' => 'Totaal'
+        'total' => 'Totaal',
+        'updated' => 'Uren succesvol geüpdatet'
     ],
 
     'customer' => [

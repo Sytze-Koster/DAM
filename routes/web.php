@@ -43,6 +43,9 @@ Route::post('project/{project}/archive', 'ProjectController@archive');
 // Timesheet
 Route::get('project/{project}/timesheet', 'TimesheetController@index');
 Route::get('project/{id}/customer', 'TimesheetController@showForCustomer');
+Route::get('timesheet/{timesheet}/edit', 'TimesheetController@edit');
+Route::patch('timesheet/{timesheet}', 'TimesheetController@update');
+Route::delete('timesheet/{timesheet}', 'TimesheetController@destroy');
 Route::post('timesheet/start/', 'TimesheetController@startTime');
 Route::post('timesheet/end/{timesheet}', 'TimesheetController@endTime');
 Route::post('timesheet/{project}', 'TimesheetController@store');
