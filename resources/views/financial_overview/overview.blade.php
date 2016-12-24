@@ -79,7 +79,7 @@
                             <div class="list-item">
                                 <div class="row -no-gutter">
                                     <div class="col-5">{{ $vatRate }}% {{ trans('dam.invoice.over')}} &euro; {{ number_format($vatRule['CalculatedOver'], 2, ',', '.') }}</div>
-                                    <div class="col-7 -align-right">&euro; {{ number_format($vatRule['AmountOfVat']) }}</div>
+                                    <div class="col-7 -align-right">&euro; {{ number_format($vatRule['AmountOfVat'], 2, ',', '.') }}</div>
                                 </div>
                             </div>
                             @endforeach
